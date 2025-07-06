@@ -25,19 +25,16 @@ const userUrl = `/users/user${userId}`
 
 let userRef = null
 
-signInAnonymously(auth).then(() => {
-  db = getDatabase(app)
-  userRef = dbRef(db, userUrl)
+db = getDatabase(app)
+userRef = dbRef(db, userUrl)
 
-  const userRefreshDbRef = dbRef(db, userUrl + "/refresh")
+const userRefreshDbRef = dbRef(db, userUrl + "/refresh")
 
-  onValue(userRefreshDbRef, refreshUserCallback)
+onValue(userRefreshDbRef, refreshUserCallback)
 
-  // TODO: Change timeout
-  setTimeout(() => {
-    dbReady.value = true
-  }, 200)
-})
+setTimeout(() => {
+  dbReady.value = true
+}, 200)
 
 const handleBeforeUnload = async () => {
   remove(userRef)
