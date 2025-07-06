@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "public": "public",
-    "site": "just-clicker",
+    "public": "./src/dist",
     "ignore": [
       "firebase.json",
       "**/.*",
